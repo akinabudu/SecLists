@@ -5714,6 +5714,7 @@ src/Core/Migration/V6_6/Migration1663402950SetDoubleOptinCustomerActive.php
 src/Core/Migration/V6_6/Migration1736154963FixCyprusVatIdPattern.php
 src/Core/Migration/V6_6/Migration1726049442UpdateVariantListingConfigInProductTable.php
 src/Core/Migration/V6_6/Migration1716196653AddTechnicalNameToImportExportProfile.php
+src/Core/Migration/V6_6/Migration1747746986OrderTaxCalculationType.php
 src/Core/Migration/V6_6/Migration1731576063UpdateProductComparisonTemplate.php
 src/Core/Migration/V6_6/Migration1712309989DropLanguageLocaleUnique.php
 src/Core/Migration/V6_6/Migration1736824370MigrationMailTemplateForDocument.php
@@ -5845,6 +5846,7 @@ src/Core/Test/Stub/Framework/DataAbstractionLayer/TestEntityDefinition.php
 src/Core/Test/Stub/Framework/Adapter/Storage/ArrayKeyValueStorage.php
 src/Core/Test/Stub/Framework/BundleFixture.php
 src/Core/Test/Stub/Framework/Util/StaticFilesystem.php
+src/Core/Test/Stub/DataAbstractionLayer/StaticSalesChannelRepository.php
 src/Core/Test/Stub/DataAbstractionLayer/StaticEntityRepository.php
 src/Core/Test/Stub/DataAbstractionLayer/StaticDefinitionInstanceRegistry.php
 src/Core/Test/Stub/DataAbstractionLayer/StaticEntityWriterGateway.php
@@ -5930,6 +5932,7 @@ src/Core/DevOps/StaticAnalyze/PHPStan/Rules/MessagesShouldNotUsePHPStanTypes.php
 src/Core/DevOps/StaticAnalyze/PHPStan/Rules/NoFlowEventAwareExtendsRule.php
 src/Core/DevOps/StaticAnalyze/PHPStan/Rules/Internal/InternalClassRule.php
 src/Core/DevOps/StaticAnalyze/PHPStan/Rules/Internal/InternalMethodRule.php
+src/Core/DevOps/StaticAnalyze/PHPStan/Rules/NoUnconfiguredMetricAllowed.php
 src/Core/DevOps/StaticAnalyze/PHPStan/Rules/Tests/MockingSimpleObjectsNotAllowedRule.php
 src/Core/DevOps/StaticAnalyze/PHPStan/Rules/Tests/PHPUnitMethodAttributesOverAnnotationsRule.php
 src/Core/DevOps/StaticAnalyze/PHPStan/Rules/Tests/TestRuleHelper.php
@@ -5955,7 +5958,6 @@ src/Core/DevOps/StaticAnalyze/PHPStan/Rules/ScheduledTaskTooLowIntervalRule.php
 src/Core/DevOps/StaticAnalyze/PHPStan/Rules/UseCLIContextRule.php
 src/Core/DevOps/StaticAnalyze/PHPStan/Rules/Symplify/NoReturnSetterMethodWithFluentSettersRule.php
 src/Core/DevOps/StaticAnalyze/PHPStan/Rules/NoManualSalesChannelContextCreationRule.php
-src/Core/DevOps/StaticAnalyze/PHPStan/Rules/NoInconfiguredMetricAllowed.php
 src/Core/DevOps/StaticAnalyze/PHPStan/Rules/NoDALAutoload.php
 src/Core/DevOps/StaticAnalyze/PHPStan/Rules/RouteScopeRule.php
 src/Core/DevOps/StaticAnalyze/PHPStan/Rules/NoDelayStampRule.php
@@ -10136,6 +10138,7 @@ src/Administration/Resources/app/administration/src/module/sw-settings-cache/ind
 src/Administration/Resources/app/administration/src/module/sw-settings-seo/page/sw-settings-seo/sw-settings-seo.html.twig
 src/Administration/Resources/app/administration/src/module/sw-settings-seo/page/sw-settings-seo/sw-settings-seo.spec.js
 src/Administration/Resources/app/administration/src/module/sw-settings-seo/page/sw-settings-seo/index.js
+src/Administration/Resources/app/administration/src/module/sw-settings-seo/component/sw-seo-url/sw-seo-url.scss
 src/Administration/Resources/app/administration/src/module/sw-settings-seo/component/sw-seo-url/store.ts
 src/Administration/Resources/app/administration/src/module/sw-settings-seo/component/sw-seo-url/index.js
 src/Administration/Resources/app/administration/src/module/sw-settings-seo/component/sw-seo-url/sw-seo-url.spec.js
@@ -12144,6 +12147,7 @@ src/Administration/composer.json
 .bc-exclude.php
 .gitattributes
 UPGRADE-6.2.md
+custom/static-plugins/.gitkeep
 custom/apps/.gitkeep
 custom/plugins/.gitkeep
 custom/scripts/examples/template.php
@@ -12772,6 +12776,7 @@ tests/integration/Core/Content/Category/DataAbstractionLayer/CategoryBreadcrumbU
 tests/integration/Core/Content/Category/Service/NavigationLoaderTest.php
 tests/integration/Core/Content/Category/Service/CategoryBreadcrumbBuilderTest.php
 tests/integration/Core/Content/Category/Repository/CategoryRepositoryTest.php
+tests/integration/Core/Content/Category/Subscriber/CategorySubscriberTest.php
 tests/integration/Core/Content/Category/Validation/EntryPointValidatorTest.php
 tests/integration/Core/System/User/Recovery/UserRecoveryServiceTest.php
 tests/integration/Core/System/User/UserCrudTest.php
@@ -14064,6 +14069,7 @@ tests/migration/Core/V6_6/Migration1721811224AddInAppPurchaseGatewayUrlTest.php
 tests/migration/Core/V6_6/Migration1673249981MigrateIsNewCustomerRuleTest.php
 tests/migration/Core/V6_6/Migration1737105721MigrateOrderStateChangeDocumentToA11YTest.php
 tests/migration/Core/V6_6/Migration1702479623RemoveEsMultilingualFlagTest.php
+tests/migration/Core/V6_6/Migration1747746986OrderTaxCalculationTypeTest.php
 tests/migration/Core/V6_6/Migration1736824370MigrationMailTemplateForDocumentTest.php
 tests/migration/Administration/.gitkeep
 tests/migration/MigrationTestTrait.php
@@ -14675,6 +14681,7 @@ tests/unit/Core/Checkout/Document/Renderer/_fixtures/empty_1.pdf
 tests/unit/Core/Checkout/Document/Renderer/_fixtures/invoice_1.xml
 tests/unit/Core/Checkout/Document/Renderer/_fixtures/invoice_1.pdf
 tests/unit/Core/Checkout/Document/Zugferd/ZugferdDocumentTest.php
+tests/unit/Core/Checkout/Document/Zugferd/ZugferdDocumentMock.php
 tests/unit/Core/Checkout/Document/Zugferd/ZugferdBuilderTest.php
 tests/unit/Core/Checkout/Document/SalesChannel/DocumentRouteTest.php
 tests/unit/Core/Checkout/Document/Struct/DocumentGenerateOperationTest.php
@@ -18438,6 +18445,7 @@ changelog/release-6-7-0-0/2024-10-07-migrate-help-center-store-to-pinia.md
 changelog/release-6-7-0-0/2025-01-24-update-polyfills-and-cleanup-js.md
 changelog/release-6-7-0-0/2025-03-25-add-login-scripts-to-window.md
 changelog/release-6-7-0-0/2025-02-13-removed-sql_set_default_session_variables-and-enforce-mysql-performance-tweaks.md
+changelog/release-6-7-0-0/2025-03-11-add-missing-dependency-field-of-url-runtime-field-to-media-definition.md
 changelog/release-6-7-0-0/2025-03-19-improve-tag-selection-in-admin.md
 changelog/release-6-7-0-0/2025-03-05-update-switch-context-event.md
 changelog/release-6-7-0-0/2025-02-17-ios-quick-look-chrome.md
@@ -18458,7 +18466,6 @@ changelog/release-6-7-0-0/2024-10-22-replace-marketing-vuex-store-with-pinia-sto
 changelog/release-6-7-0-0/2025-02-06-product-slider-refactoring.md
 changelog/release-6-7-0-0/2025-03-11-added-missing-rule-filter-for-shipping-price-matrix.md
 changelog/release-6-7-0-0/2025-02-26-implement-windowgetid-message-from-meteor-admin-sdk.md
-changelog/release-6-7-0-0/2025-03-11-add-missing-dependency-field-of-url-runtime-field-to-media-defintion.md
 changelog/release-6-7-0-0/2024-12-17-migrate-swproductdetail-store-to-pinia.md
 changelog/release-6-7-0-0/2025-02-17-deprecate-dom-access-helper.md
 changelog/release-6-7-0-0/2025-02-17-api-client-confidential-flag.md
@@ -18972,6 +18979,7 @@ changelog/_unreleased/2025-05-09-export-createtexteditordatamappingbutton-throug
 changelog/_unreleased/2025-06-04-fix-password-field-autocomplete-new-password.md
 changelog/_unreleased/2022-05-18-abstract-and-reduce-rule-condition-components.md
 changelog/_unreleased/2025-04-07-fix-nested-line-items.md
+changelog/_unreleased/2025-05-10-load-saleschannelcategoryentity-when-loading-the-breadcrumb.md
 changelog/_unreleased/2025-04-07-fix-override-paging-listing-page-parameter.md
 changelog/_unreleased/2025-05-20-added-reset-parameter-to-update-theme.md
 changelog/_unreleased/2025-04-16-remove-deletethemefilesmessage.md
@@ -18983,8 +18991,10 @@ changelog/_unreleased/2025-05-24-add-event-to-modify-saleschannelcontext.md
 changelog/_unreleased/2025-06-02-added-not-filter-shorthands.md
 changelog/_unreleased/2022-04-05-keep-track-of-changes-on-rule-builder-detail-page.md
 changelog/_unreleased/2025-04-17-fix-webhook-dispatching-for-not-versioned-events.md
+changelog/_unreleased/2025-06-06-deprecate-i18n-tc-function.md
 changelog/_unreleased/2025-05-22-fix-search-term-custom-find-weird-icons.md
 changelog/_unreleased/2025-05-26-fix-change-in-new-generated-language-get-an-error.md
+changelog/_unreleased/2025-06-07-spelling-fixes-in-core-package.md
 changelog/_unreleased/2025-04-02-fix-admin-order-shipping-cost-input-behaviour.md
 changelog/_unreleased/2025-02-15-prevent-imitating-when-not-possible.md
 changelog/_unreleased/2025-06-03-improved-ar-error-feeback.md
@@ -19011,11 +19021,13 @@ changelog/_unreleased/2025-04-28-improve-basic-captcha-compatibility.md
 changelog/_unreleased/2025-04-15-deprecate-account-order-detail-page.md
 changelog/_unreleased/2025-04-30-add-deprecated-prop-to-facilitate-the-migration-to-meteor-components.md
 changelog/_unreleased/2025-05-05-fixed-promotion-deletion-cart-error.md
+changelog/_unreleased/2025-06-09-vue3-compatibility-for-template-refs-in-cross-selling-component.md
 changelog/_unreleased/2025-05-21-remove-write-of-createdbyfield-for-nonlive-versions.md
 changelog/_unreleased/2025-05-18-change-file_exists-to-is_dir.md
 changelog/_unreleased/2025-04-30-revert-silently-ignoring-admin-es-errors.md
 changelog/_unreleased/2025-03-19-add-nl2br-filter-to-review-content.md
 changelog/_unreleased/2025-05-21-adjust-styling-label-created-by-admin.md
+changelog/_unreleased/2025-06-10-removed-write-protection-flag-from-fileextension-field-in-the-mediadefinition.md
 changelog/_unreleased/2025-05-05-remove-obsolete-requiredmessage-variable-declarations.md
 changelog/_unreleased/2025-05-21-refactor-manufacturer-wrapper-on-product-detail-page.md
 changelog/_unreleased/2025-03-25-fix-show-product-name-for-variants-in-admin-category-products.md
@@ -19034,10 +19046,12 @@ changelog/_unreleased/2025-05-30-silence-and-log-exceptions-of-in-app-purchases.
 changelog/_unreleased/2025-02-14-postpone-telemetry_metrics-stable-version-to-6-8.md
 changelog/_unreleased/2024-09-27-add-an-option-for-generating-documents-via-bulk-edit.md
 changelog/_unreleased/2025-05-13-add-active-styling-class-to-main-navigation.md
+changelog/_unreleased/2025-06-03-fix-tooltip-of-the-sw-product-variant-info-component.md
 changelog/_unreleased/2024-08-19-add-context-to-orderstatechangecriteriaevent.md
 changelog/_unreleased/2025-03-20-move-review-active-check-into-store-api-routes.md
 changelog/_unreleased/2025-05-09-remove-first-level-app-snippet-restriction.md
 changelog/_unreleased/2025-06-06-improve-listing-of-customergroup-registration-form-seo-urls.md
+changelog/_unreleased/2025-05-22-e-invoice-vertical-tax-calculation.md
 changelog/_unreleased/2025-01-07-fix-gallery-thumbnail-slider.md
 changelog/_unreleased/2024-08-05-metrics-abstraction.md
 changelog/_unreleased/2024-05-22-navbar-for-main-navigation.md
@@ -19050,6 +19064,7 @@ changelog/_unreleased/2024-12-19-rename-transaction-transition-action-pay-and-pa
 changelog/_unreleased/2022-07-04-mail-attach.md
 changelog/_unreleased/2025-05-20-account-design-adjustments.md
 changelog/_unreleased/2025-05-27-replace-old-data-protection-info-the-our-current-standard.md
+changelog/_unreleased/2025-06-05-product-variants-empty-state-list-position-doesn-t-correct.md
 changelog/_unreleased/2025-05-15-fix-search-result-order-in-preview-search-in-mysql.md
 changelog/_unreleased/2025-05-28-add-convert-guest-route.md
 changelog/_unreleased/2025-05-09-changed-text-when-edit-locked-cms-page.md
@@ -19068,6 +19083,7 @@ changelog/_unreleased/2024-09-13-deprecate-force-option-from-es-index-cleanup-co
 changelog/_unreleased/2025-05-09-fixed-misalignment-of-add-tags-placeholder-in-order-edit-view.md
 changelog/_unreleased/2025-04-17-fix-broken-snippets-in-rule-builder-conditions.md
 changelog/_unreleased/2025-03-26-remove-non-existing-imports-from-admin-module-stub.md
+changelog/_unreleased/2025-06-09-fix-essential-characteristics-create-template-with-more-than-2-values-does-not-work.md
 changelog/_unreleased/2025-06-03-fix-inconsistency-between-login-and-register.md
 changelog/_unreleased/2025-03-13-disable-prefix-search-for-synonyms-to-prevent-irrelevant-results.md
 changelog/_unreleased/2025-05-12-fixed-accessibility-issue-of-collapse-button-of-orders.md
@@ -19078,6 +19094,7 @@ changelog/_unreleased/2025-06-02-translated-custom-field-value-accessor.md
 changelog/_unreleased/2024-09-16-exchange-recursive-categories-macro-with-tpl.md
 changelog/_unreleased/2025-05-02-fix-height-of-search-field-in-sw-card-filter-component.md
 changelog/_unreleased/2025-04-14-do-not-include-empty-subcategory-navigation-list.md
+changelog/_unreleased/2025-05-26-fix-alignment-logo-manufacture-media-field.md
 changelog/_unreleased/2025-01-29-change-redirect-path-for-wishlist-after-login.md
 changelog/_unreleased/2025-04-17-fix-dal-inherited-to-many.md
 changelog/_unreleased/2025-03-29-remove-debit-payment-method.md
